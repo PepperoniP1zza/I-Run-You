@@ -41,7 +41,7 @@ public class CommentController {
 	
 	// Read (댓글 불러오기)
 	// http://localhost:4040/irunyou/comment&schIdx=?
-	@GetMapping("")	
+	@GetMapping("")
 	public ResponseDto<List<CommentResponseDto>> getCommentList (@RequestParam int schIdx) {	// RequestParam 쓰실경우 파라미터 이름 알기쉽게 정해야 합니다
 		return commentService.getCommentList(schIdx);
 	}
@@ -71,4 +71,5 @@ public class CommentController {
 	public ResponseDto<CommentLikeDto> commentLike (@AuthenticationPrincipal String email, @RequestBody CommentIndexDto requestBody) {
 		return commentService.commentLike(email, requestBody);
 	}
+	
 }

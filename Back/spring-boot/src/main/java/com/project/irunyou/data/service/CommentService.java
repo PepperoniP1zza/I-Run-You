@@ -2,15 +2,11 @@ package com.project.irunyou.data.service;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import com.mysql.cj.protocol.a.LocalDateTimeValueEncoder;
 import com.project.irunyou.data.dto.CommentDto;
 import com.project.irunyou.data.dto.CommentIndexDto;
 import com.project.irunyou.data.dto.CommentLikeDto;
@@ -51,6 +47,7 @@ public class CommentService {
 						.commentWriter(userRepository.findUserNicknameByUserEmail(c.getCommentWriter()))
 						.commentContent(c.getCommentContent())
 						.commentDatetime(c.getCommentDatetime())
+						.commentLike(commentLikeRepository.countByCommentIndex(c.getCommentIndex()))
 						.build());
 			}
 						
@@ -224,5 +221,17 @@ public class CommentService {
 		// 중복된 리턴된 값들을 위에서 선언하는 것이 아닌 밑으로 빼서 리턴 해줌
 		int result = commentLikeRepository.countByCommentIndex(dto.getCommentIndex());
 		return ResponseDto.setSuccess(message, new CommentLikeDto(result));
+	}
+	public ResponseDto<List<CommentLikeDto>> getLike(List<CommentIndexDto> dto) {
+		List<CommentLikeDto> result = new ArrayList<>();
+		try {
+			for (int i = 0; i < dto.size(); i++) {
+				int likeNumber = commentLikeRepository.countByCommentIndex(dto.get(i).getCommentIndex());
+				result.add(new CommentLikeDto(likeNumber));
+			}
+		} catch (Exception e) {
+			return ResponseDto.setFailed("Database Error");
+		}
+		return ResponseDto.setSuccess("Successfully loaded data", result);
 	}
 }

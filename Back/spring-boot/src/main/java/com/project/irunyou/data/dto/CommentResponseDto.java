@@ -27,6 +27,8 @@ public class CommentResponseDto {
     private String commentContent;
 
     private LocalDateTime commentDatetime;
+    @NotNull
+    private int commentLike;
     
 // 	0131 commentService 빌더 -> 생성자로 대체 - 황석민
     public CommentResponseDto(CommentEntity comment) {

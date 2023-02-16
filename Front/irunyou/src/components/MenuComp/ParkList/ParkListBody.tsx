@@ -3,6 +3,7 @@ import "./parklist.css";
 import ParkListItem from "./ParkListItem";
 import axios from 'axios';
 import useLocationStore from'../LocationStore';
+import useStore from '../Parkinfo/Store';
 
 import axiosInstance from '../../../service/axiosInstance';
 
@@ -26,6 +27,7 @@ export default function ParkListBody() {
   const [parks, setParks] = useState<Parks[]>([])
 
   const { setCloseParks, setUserLocation } = useLocationStore();
+  const { parkInfoState } = useStore();
 
   const fetchData = async (locale: any) => {
     const parksData = await getParks(locale);

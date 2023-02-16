@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import './Comment.css';
 import CommentItem from './CommentItem';
 import { Button } from '@mui/material';
+import useStore from './Store';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 interface Props {
@@ -16,6 +17,7 @@ interface Comment {
     commentWriter: string;
     commentContent: string;
     commentDatetime: string;
+    commentLike: number;
 }
 
 
@@ -23,6 +25,7 @@ export default function ScheduleComment({ runScheduleIndex }: Props) {
 
     const [commentArray, setCommentArray] = useState<Comment[]>([]);
     const [commentContent,setCommentContent] = useState(String);
+    const { parkInfoState } = useStore();
     const [flag, setFlag] = useState<boolean>(false);
 
 

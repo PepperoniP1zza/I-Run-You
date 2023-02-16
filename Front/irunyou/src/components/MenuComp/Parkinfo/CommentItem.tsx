@@ -6,6 +6,7 @@ import axiosInstance from "../../../service/axiosInstance";
 import { useEffect, useState } from "react";
 import { BiLike } from "react-icons/bi";
 import axios from "axios";
+import { style } from "@mui/system";
 
 
 interface Props {
@@ -15,6 +16,7 @@ interface Props {
         commentWriter: string;
         commentContent: string;
         commentDatetime: string;
+        commentLike: number;
     },
     setCommentArray : any;
 }
@@ -50,12 +52,9 @@ export default function CommentItem({ comment, setCommentArray }: Props) {
 
     })
 
-    // 프론트에서 params 값은 보내짐
-    // 백에서 cmtidx를 찾지 못함
-
     // 2023-02-14 최예정
     // 좋아요 기능
-    const[like, changeLike] = useState<number>(0);
+    const[like, changeLike] = useState<number>(comment.commentLike);
 
     const LikeHandler = ( async () => {
         const data = {
@@ -83,7 +82,7 @@ export default function CommentItem({ comment, setCommentArray }: Props) {
             <div className="comment-writer-container">{comment.commentWriter}</div>
             <div className="comment-content-container">{comment.commentContent}</div>
             <div className="commit-like">
-                <span onClick={() => LikeHandler()}><BiLike size="20" cursor="pointer"></BiLike></span> { like }
+                <span onClick={() => LikeHandler()}><BiLike className="BiLike-icon" size="20px"></BiLike></span> {like}
             </div>
             <div className="comment-time-container">
                 <div>{date}</div>
