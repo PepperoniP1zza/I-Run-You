@@ -30,7 +30,7 @@
     position: relative;
     width: 100%;
     height: 75px;
-    background-color: rgb(226, 146, 146);
+    background-color: #b6cf55;
     padding-left: 20px;
     margin-bottom: 7px;
     
@@ -52,11 +52,14 @@
     font-weight: 800;
     word-spacing: -5px;
     padding-bottom: 5px;
+
+    color: #323232;
 }
 .fa-bars-staggered {
     font-size: 30px;
     padding-left: 6px;
     padding-top: 3px;
+    color: #323232;
 }
 
 
@@ -67,11 +70,11 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    background-color: #E1E1E1;
+    background-color: #eeeeee;
     width: 100%;
     height: 50px;
-    border-top: 1px solid #888888;
-    border-bottom: 1px solid #888888;
+    border-top: 1px solid #d2d2d2;
+    border-bottom: 1px solid #d2d2d2;
     margin-bottom: 7px;
     padding-left: 20px;
     font-size: 18px;
@@ -106,7 +109,7 @@
 .menu-item-list {
     display: flex;
     justify-content: flex-start;
-    background-color: #E1E1E1;
+    background-color: #eeeeee;
     width: 100%;
     border-top: #888888;
 }
@@ -123,7 +126,7 @@
     border-radius: 15px;
     overflow: hidden;
     background-color: #FFFFFF;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    box-shadow: 0 1px 10px rgba(33,33,33,0.19), 0 1px 6px rgba(33, 33, 33, 0.23);
     cursor: pointer;
 }
 .menu-icon {
@@ -146,7 +149,8 @@
     align-items: center;
     width: 100%;
     height: 10%;
-    background-color: #C4C4C4;
+    background-color: #eeeeee
+    ;
     font-size: 14px;
     padding: 3%;
 

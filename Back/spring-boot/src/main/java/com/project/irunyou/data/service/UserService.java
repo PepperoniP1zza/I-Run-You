@@ -102,7 +102,7 @@ public class UserService {
 		if (!StringUtils.hasText(userPhone) || !StringUtils.hasText(name)) {
 			return ResponseDto.setFailed("입력한 정보를 다시 확인하세요");
 		}
-		UserEntity user = userRepository.findByUserPhoneNumberAndUserName(userPhone, name);
+		UserEntity user = userRepository.findByUserPhoneNumberAndUserName(phone, name);
 		if (user == null)
 			return ResponseDto.setFailed("가입된 정보가 없습니다.");
 		

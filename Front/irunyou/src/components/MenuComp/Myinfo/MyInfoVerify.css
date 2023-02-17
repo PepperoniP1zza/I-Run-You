@@ -65,6 +65,8 @@ body {
     width: 50px;
     border-radius: 3px;
 
+    background-color: rgba(172, 172, 172, 0.299);
+
     cursor: pointer;
 }
 

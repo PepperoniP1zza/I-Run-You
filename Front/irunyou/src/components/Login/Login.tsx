@@ -53,7 +53,6 @@ export default function Login() {
                 alert(error.message);
                 movePage("/Login");
             })
-
     }
 
     const rememberEmail = (e : any) => {
@@ -66,7 +65,14 @@ export default function Login() {
         }
     }
 
+    // 모든 페이지가 이전으로 가도 토큰은 저장되어 있으나
+    // 보이는 화면 상 로그인이 풀려있는 것처럼 보임
+
     useEffect(()=> {
+        if(localStorage.getItem('token')) {
+            window.location.href="/MainPage";
+        }
+
         if(cookie.rememberEmail !== undefined) {
             setUserEmail(cookie.rememberEmail);
             setIsRemember(true);

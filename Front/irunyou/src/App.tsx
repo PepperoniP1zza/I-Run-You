@@ -22,6 +22,7 @@ import NoticeModifyAdmin from './components/MenuComp/Notice/NoticeModifyAdmin';
 import axiosInstance from '././service/axiosInstance';
 
 import UserDelete from './components/MenuComp/Myinfo/UserDelete';
+import { useState } from 'react';
 
 // 작성자 : 최예정
 // 파일의 역할 : 링크 연결, 백 -> 프론트 GET

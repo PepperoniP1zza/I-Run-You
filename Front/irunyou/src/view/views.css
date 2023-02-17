@@ -115,6 +115,8 @@
 
     width: 22px;
     cursor: pointer;
+
+    color: #323232;
 }
 
 @media(max-width: 640px){

@@ -5,6 +5,13 @@
     box-sizing: border-box;
 }
 
+.notice-logo-text {
+    padding-left: 20px;
+    margin-left: 20px;
+
+    border-left: 1px solid #252525;
+}
+
 .notice-container {
     display: flex;
     flex-direction: column;
@@ -16,27 +23,6 @@
 
 .irunyou-logo {
     height: 80px;
-}
-
-
-.notice-header {
-    display: flex;
-    top: 80px;
-    width: 100vw;
-    height: 80px;
-    text-align: left;
-
-    background-color: #b6cf55;
-}
-
-.notice-text {
-    margin-left: 30px;
-    line-height: 80px;
-    vertical-align: middle;
-    font-size: 25px;
-    font-weight: 800;
-
-    color: white;
 }
 
 .notice-information {

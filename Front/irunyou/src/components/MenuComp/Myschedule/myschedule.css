@@ -11,7 +11,7 @@
     height: 40px;
     margin-bottom: 20px;
 
-    background-color: beige;
+    background-color: #b7cf5595;
     color: #444;
     font-size: 30px;
     font-weight: 800;
@@ -26,7 +26,7 @@
     width: 100%;
     padding: 3%;
     border-radius: 5px;
-    background-color: aliceblue;
+    background-color: #eeeeee89;
 
     cursor: pointer;
 }
@@ -52,7 +52,7 @@
     height: 30px;
     margin-bottom: 20px;
 
-    background-color: #b6cf55;
+    background-color: beige;
     color: #444;
     font-size: 20px;
     font-weight: 600;

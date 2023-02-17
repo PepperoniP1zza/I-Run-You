@@ -59,8 +59,8 @@ public class AuthController {
 	// 최예정 2023-02-01
 	// 아이디(이메일) 중복 체크
 	@PostMapping("checkId")
-	public ResponseDto<ResultResponseDto> checkId(@RequestBody UserRequestDto requsetBody) {
-		return userService.checkId(requsetBody);
+	public ResponseDto<ResultResponseDto> checkId(@RequestBody UserRequestDto requestBody) {
+		return userService.checkId(requestBody);
 	}
 
 	// 최예정 2023-02-02

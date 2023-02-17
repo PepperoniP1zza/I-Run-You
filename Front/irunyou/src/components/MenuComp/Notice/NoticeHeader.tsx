@@ -8,6 +8,8 @@ import { Navigate, useNavigate } from "react-router";
 import path from "path";
 import NoticeItemList from "./NoticeItemList";
 
+import LogoImg from '../../../assets/logo2.png';
+
 export default function NoticeHeader() {
 
     const isAdmin = useState(true);
@@ -17,12 +19,12 @@ export default function NoticeHeader() {
     return (
         <>
             <div onClick={() => { movePage("/MainPage") }} style={{ cursor: "pointer" }}>
-                <MenuLogo />
+                <div className="menu-logo">
+                <img className="logo-img" src={ LogoImg } alt="" />
+                <div className="logo-txt" >I Run You</div>
+                <i className="fa-solid fa-bars-staggered"></i>
+                <h1 className="notice-logo-text">공지사항</h1>
             </div>
-            <div className="notice-header">
-                <div className="notice-text">
-                    I RUN YOU 공지사항
-                </div>
             </div>
             <div className="notice-information">
                 <div className="notice-information-text">
