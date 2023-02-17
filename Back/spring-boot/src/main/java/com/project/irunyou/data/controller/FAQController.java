@@ -1,8 +1,3 @@
-/* 작성자 : 문경원
- * 파일의 역할 : FAQ 컨트롤러 클래스
- * 작성날짜 : 2023-02-03
- * 
- * */
 
 package com.project.irunyou.data.controller;
 
@@ -18,6 +13,8 @@ import com.project.irunyou.data.dto.ResponseDto;
 import com.project.irunyou.data.dto.ResultResponseDto;
 import com.project.irunyou.data.service.FAQService;
 
+import io.swagger.annotations.ApiOperation;
+
 @CrossOrigin(originPatterns = "http://localhost:3000")
 @RestController
 @RequestMapping("irunyou/FAQ/")
@@ -25,9 +22,8 @@ public class FAQController {
 	
 	@Autowired FAQService faqService;
 	
-	// 문의받은사항 DB에 등록
-	// Request : name, inquiry, email, title, content
-	// Response : X
+	@ApiOperation(value="문의사항 등록하기",
+			notes="유저는 문의유형을 택해 문의사항을 등록할 수 있다.")
 	@PostMapping("")
 	public ResponseDto<ResultResponseDto> inquiryFAQ (@RequestBody InquiryDto requestBody) {
 		return faqService.inquiryFAQ(requestBody);

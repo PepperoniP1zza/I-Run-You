@@ -21,10 +21,8 @@ import com.project.irunyou.data.entity.UserEntity;
 import com.project.irunyou.data.service.AuthService;
 import com.project.irunyou.data.service.UserService;
 
-//로그인이 되어있지 않은 경우 (JWT 토큰이 없는 경우)
+import io.swagger.annotations.ApiOperation;
 
-// 2023-01-25 홍지혜
-// 2023-01-27 login controller로직 -> 서비스에서 처리
 @CrossOrigin(originPatterns = "http://localhost:3000/")
 @RestController
 @RequestMapping("auth/")
@@ -33,48 +31,46 @@ public class AuthController {
 	@Autowired private AuthService authService;
 	@Autowired private UserService userService;
 	
-	// 회원가입
+	@ApiOperation(value="회원가입",
+			notes="유저에게 정보(이름,닉네임,아이디(이메일),비밀번호,비밀번확인,주소,휴대전화번호)를 받아 회원가입을 진행한다.")
 	@PostMapping("signup")
 	public ResponseDto<?> signUpUser (@RequestBody PostUserDto requestBody) {
 		return authService.signUpUser(requestBody);
 	}
 	
-	// 로그인
+	@ApiOperation(value="로그인",
+			notes="유저에게 아이디(이메일),비밀번호를 받아 로그인을 진행한다.")
 	@PostMapping("login")
 	public ResponseDto<?> LoginUser(@RequestBody LoginUserDto requestBody) {
 		return authService.LoginUser(requestBody);
 	}
 	
 	
-	// 홍지혜 2023-02-02 회원가입 과정 검증 기능 userController -> AuthController로 이동
-	// 토큰 검증 때문에 auth/ 경로 외엔 로그인없이 접근 불가능하기 때문
-	
-	// 최예정 2023-02-02
-	// id 찾기
+	@ApiOperation(value="아이디 찾기",
+			notes="유저에게 이름과 휴대폰번호를 받아 유저의 이메일을 일부만 돌려준다.")
 	@PostMapping("findemail")
 	public ResponseDto<UserRequestDto> findUserId(@RequestBody UserPhoneAndNameDto requestBody) {
 		return userService.findUserId(requestBody);
 	}
 
-	// 최예정 2023-02-01
-	// 아이디(이메일) 중복 체크
+	@ApiOperation(value="아이디(이메일) 중복 체크",
+			notes="유저가 회원가입시 입력한 이메일이 이미 존재하는 이메일인지 확인한다.")
 	@PostMapping("checkId")
 	public ResponseDto<ResultResponseDto> checkId(@RequestBody UserRequestDto requestBody) {
 		return userService.checkId(requestBody);
 	}
 
-	// 최예정 2023-02-02
-	// 닉네임 중복 체크
+	@ApiOperation(value="닉네임 중복 체크",
+			notes="유저가 회원가입시 입력한 닉네임이 이미 존재하는 이메일인지 확인한다.")
 	@PostMapping("checkNickname")
 	public ResponseDto<ResultResponseDto> checkNickname(@RequestBody UserNicknameDto requsetBody) {
 		return userService.checkNickname(requsetBody);
 	}
 
-	// pw찾기
-	// request method가 Post이고 end point는 findPw
+	@ApiOperation(value="비밀번호 찾기",
+			notes="유저의 이메일을 받아 랜덤한 8자리 코드의 임시 비밀번호를 유저의 이메일로 전송한다.")
 	@PostMapping("findPw")
 	public ResponseDto<ResultResponseDto> findPw(@RequestBody FindPasswordDto requestBody) {
-		// 비즈니스 로직에 대한 결과 반환
 		return userService.findPw(requestBody);
 	}
 	

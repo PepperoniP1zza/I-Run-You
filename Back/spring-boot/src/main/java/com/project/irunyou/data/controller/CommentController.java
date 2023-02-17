@@ -1,8 +1,4 @@
-/* 작성자 : 문경원
- * 파일의 역할 : 댓글 작성 컨트롤러 클래스
- * 작성날짜 : 2023-01-16
- * 
- * */
+
 package com.project.irunyou.data.controller;
 
 import java.util.List;
@@ -29,6 +25,7 @@ import com.project.irunyou.data.dto.ResponseDto;
 import com.project.irunyou.data.dto.ResultResponseDto;
 import com.project.irunyou.data.service.CommentService;
 
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 
 @CrossOrigin(originPatterns = "http://localhost:3000")
@@ -39,34 +36,36 @@ public class CommentController {
 
 	@Autowired CommentService commentService;
 	
-	// Read (댓글 불러오기)
-	// http://localhost:4040/irunyou/comment&schIdx=?
+	@ApiOperation(value="댓글 목록 불러오기",
+			notes="해당하는 RUN일정에 달린 모든 댓글을 불러온다.")
 	@GetMapping("")
 	public ResponseDto<List<CommentResponseDto>> getCommentList (@RequestParam int schIdx) {	// RequestParam 쓰실경우 파라미터 이름 알기쉽게 정해야 합니다
 		return commentService.getCommentList(schIdx);
 	}
 	
-	// Create (댓글작성)
+	@ApiOperation(value="댓글 작성하기",
+			notes="유저는 RUN일정에 댓글을 달 수 있다.")
 	@PutMapping("")
 	public ResponseDto<List<CommentResponseDto>> registComment (@AuthenticationPrincipal String email, @RequestBody CommentDto requestBody){
 		return commentService.registComment(email, requestBody);
 	}
 	
-	// Delete (댓글삭제)
+	@ApiOperation(value="댓글 삭제하기",
+			notes="유저는 자신이 작성한 댓글만 삭제할 수 있다.")
 	@DeleteMapping("")
 	public ResponseDto<List<CommentResponseDto>> deleteComment (@AuthenticationPrincipal String email, @RequestParam int cmtIdx, int schIdx){
 		return commentService.deleteComment(email,cmtIdx, schIdx);
 	}
 	
-	// 2023-02-12 홍지혜
-	// 댓글 수정
+	@ApiOperation(value="댓글 수정하기",
+			notes="유저는 자신이 작성한 댓글을 수정할 수 있다.")
 	@PatchMapping("")
 	public ResponseDto<ResultResponseDto> modifyComment(String email,PatchCommentDto dto) {
 		return commentService.modifyComment(email, dto);
 	}
 	
-	// 2023-02-14 최예정
-	// 사용자 한 명이 좋아요 누르면 1개의 좋아요만 올라가거나 내려감
+	@ApiOperation(value="댓글 좋아요",
+			notes="유저는 마음에 드는 댓글에 좋아요를 누르고, 취소할 수 있다.")
 	@PostMapping("")
 	public ResponseDto<CommentLikeDto> commentLike (@AuthenticationPrincipal String email, @RequestBody CommentIndexDto requestBody) {
 		return commentService.commentLike(email, requestBody);

@@ -7,15 +7,21 @@
 
 .park-list-item {
     display: flex;
-    width: 100%;
+    margin : auto;
+    width: 95%;
     height: 20%;
     margin-bottom: 3%;
-    border-bottom: 1px solid gray;
+    border-radius: 10px;
+    background-color: #b7cf5595;
+    box-shadow: 0 1px 10px rgba(33,33,33,0.19), 2px 2px 6px rgba(33, 33, 33, 0.23);
     cursor: pointer;
 }
 
 .park-list-img {
     width: 30%;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
     background-color: gray;
 }
 
@@ -28,7 +34,7 @@
     padding: 2% 0 0 3%;
     width: 70%;
     height: 100%;
-    background-color: #b7cf5595;
+    /* background-color: #b7cf5595; */
 }
 
 .park-list-title {
