@@ -88,34 +88,17 @@ public class CommentService {
 			
 		CommentEntity comment;
 		
-//		CommentResponseDto result;
-		
-//	 	0131 result 빌더 -> 생성자로 대체 - 황석민
-		
-//		result = CommentResponseDto
-//				.builder()
-//				.commentIndex(0)
-//				.commentScheduleIndex(0)
-//				.commentWriterIndex(dto.getCommentWriterIndex())
-//				.commentContent(dto.getCommentContent())
-//				.commentDatetime(timestamp)
-//				.build();
-		
-		
 		if(dto.getCommentContent().isEmpty()) {	// 내용이 비어있지 않은지 먼저 검토
 			return ResponseDto.setFailed("내용을 입력하세요.");
 		}
 		
 		comment = CommentEntity
 				.builder()
-//				.commentIndex(0)	// 인덱스는 autoIncreament이므로 넣을 필요 없음
 				.commentScheduleIndex(dto.getCommentScheduleIndex())
 				.commentWriter(email)	// 유저 이메일
 				.commentContent(dto.getCommentContent())
 				.commentDatetime(LocalDateTime.now())	// 현재 시간
 				.build();
-		
-//		result = new CommentResponseDto(comment);		
 		
 		commentRepository.save(comment);
 		
@@ -137,24 +120,10 @@ public class CommentService {
 		List<CommentResponseDto> data;		
 		try {
 			comment = commentRepository.findById(cmtIdx).get(); // 댓글 인덱스로 댓글 엔티티 가져옴
-
-//		int comIdx = comment.getCommentIndex();
-//		int schIdx = comment.getCommentScheduleIndex();
-//		String writerUser = comment.getCommentWriter();
-//		
-//		int delcomIdx = dto.getCommentIndex();
-//		int delschIdx = dto.getCommentScheduleIndex();
-//		String delwriterUser = dto.getCommentWriter();
-
 			if (!email.equals(comment.getCommentWriter())) { // 댓글의 유저 이메일과 삭제 요청한 유저의 이메일이 동일한지 확인
 				return ResponseDto.setFailed("자신이 작성한 댓글만 삭제 가능합니다.");
 			}
 
-//		if((comIdx == delcomIdx) & (schIdx == delschIdx) & (writerUser == delwriterUser)) {
-//			commentRepository.deleteById(delcomIdx);
-//		} else {
-//			return ResponseDto.setFailed("작성자, 댓글번호, 일정번호를 확인하세요");
-//		}
 			commentRepository.delete(comment); // 해당 엔티티 제거
 			
 			data = getCommentResponseDtoList(schIdx);

@@ -20,7 +20,7 @@ public class MailConfig {
 //		mailSender.setHost("smtp.gamil.com");	// smtp 서버 주소
 //		mailSender.setPort(857); // 메일 인증 서버 포트
 		mailSender.setUsername("projectirunyou@gmail.com");	// 메일 전송 계정 아이디
-		mailSender.setPassword("rspfkuzebsquojwb");	// 메일 전송 계정 비밀번호
+		mailSender.setPassword("rspfkuzebsquojwb");	
 	
 		mailSender.setJavaMailProperties(getMailProperties());	// 메일 인증 서버 정보 설정하기
 		
@@ -37,15 +37,6 @@ public class MailConfig {
 		properties.setProperty("mail.smtp.ssl.enable", "true"); // ssl 사용
 		properties.setProperty("mail.smtp.port", "465");
 		properties.setProperty("mail.smtp.host", "smtp.gmail.com");
-		
-//		properties.put("mail.smtp.host", "smtp.gamil.com");
-//		properties.put("mail.smtp.port",465);
-//		properties.put("mail.smtp.starttls.enable", true);
-//		properties.put("mail.smtp.auth", true);
-//		properties.put("mail.smtp.debug", true);
-//		properties.put("mail.smtp.socketFactory.prot", 465);
-//		properties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-//		properties.put("mail.smtp.socket.Factory.fallback", false);
 		
 		return properties;
 	}

@@ -29,12 +29,4 @@ public class ParkRunScheduleDto {
 	    @NotNull
 	    private String runScheduleContent;
 	    
-//	    public ParkRunScheduleDto(RunScheduleEntity runScheduleEntity) {
-//	    	this.runScheduleIndex = runScheduleEntity.getRunScheduleIndex();
-//	    	this.runSchedulePark = runScheduleEntity.getRunSchedulePark();
-//	    	this.runScheduleTitle = runScheduleEntity.getRunScheduleTitle();
-//	    	this.runScheduleWriter = runScheduleEntity.getRunScheduleWriter();
-//	    	this.runScheduleDatetime = runScheduleEntity.getRunScheduleDateTime();
-//	    	this.runScheduleContent = runScheduleEntity.getRunScheduleContent();
-//	    }
 }

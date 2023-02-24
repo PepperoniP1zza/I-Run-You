@@ -30,7 +30,6 @@ public class CommentResponseDto {
     @NotNull
     private int commentLike;
     
-// 	0131 commentService 빌더 -> 생성자로 대체 - 황석민
     public CommentResponseDto(CommentEntity comment) {
     	this.commentIndex = comment.getCommentIndex();
     	this.commentScheduleIndex = comment.getCommentIndex();

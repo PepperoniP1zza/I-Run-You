@@ -48,7 +48,7 @@ public class SwaggerConfig{
         return new ApiInfoBuilder()
                 .title("I RUN YOU Spring Boot REST API")
                 .version("1.0.0")
-                .description("I RUN YOU의 swagger api 입니다.")
+                .description("I RUN YOU")
                 .build();
     }
 }

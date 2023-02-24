@@ -81,7 +81,7 @@ export default function NoticeWriteAdmin() {
                     <input type="text" placeholder="제목을 입력하세요.(제목은 40자 이내여야 합니다.)" maxLength={40} onChange={(e) => setNoticeTitle(e.target.value)}></input>
                 </div>
                 <div className="notice-content-inputs">
-                    <textarea rows={2} cols={20} wrap="hard" placeholder="파파존스 페퍼로니 페퍼로니추가 엑스트라치즈 체다치즈 소스많이" onChange={(e) => setNoticeContent(e.target.value)}></textarea>
+                    <textarea rows={2} cols={20} wrap="hard" placeholder="내용을 입력하세요" onChange={(e) => setNoticeContent(e.target.value)}></textarea>
                 </div>
             </div>
             <div className="notice-write-btns">

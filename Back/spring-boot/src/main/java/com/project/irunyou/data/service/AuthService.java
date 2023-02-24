@@ -28,7 +28,7 @@ public class AuthService {
 	// 유저의 이메일과 비밀번호로 유저 엔티티 생성 -> rawPassword / encodedPassword 같은지 확인
 	public UserEntity getByCredentials(String email, String password, PasswordEncoder encoder) {
 		/*
-		 * BCryp어쩌구 인코더는 같은 값을 인코딩하더라도 할 떄마다 값이 다름 -> 의미 없는 값 랜덤 Salt -> Salting
+		 * BCryp- 인코더는 같은 값을 인코딩하더라도 할 떄마다 값이 다름 -> 의미 없는 값 랜덤 Salt -> Salting
 		 * 유저에게 받은 패스워드를 인코딩해도 데이터베이스에 저장한 패스워드와는 다를 확률이 높음
 		 * 전용 일치 여부 메서드 matches() : Salt고려 두 값 비교
 		 */

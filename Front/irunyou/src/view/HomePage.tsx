@@ -54,7 +54,7 @@ export default function HomePage() {
         </div>
       </div>
       <div className="home-footer">
-        <div className="copyrights">© 2023. 우리조 All rights reserved.</div>
+        <div className="copyrights">© 2023. All rights reserved.</div>
         <div className="contact-us">Contact Us</div>
       </div>
     </div>

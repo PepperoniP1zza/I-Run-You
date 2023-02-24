@@ -1,10 +1,4 @@
-/* 작성자 : 황석민
- * 파일의 역할 : PW제외 유저정보 받아오기
- * 작성날짜 : 2023-01-15
- *  
- * 업데이트 작성자 : -
- * 업데이트 날짜 : -
- * */
+
 package com.project.irunyou.data.dto;
 
 import com.project.irunyou.data.entity.UserEntity;

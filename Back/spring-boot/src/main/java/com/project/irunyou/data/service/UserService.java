@@ -1,11 +1,3 @@
-/* 작성자 : 문경원
- * 파일의 역할 : UserSerivce함수 담기
- * 작성날짜 : 2023-01-12
- * 
- * 업데이트 작성자 : 황석민
- * 업데이트 날짜 : 2023-01-15
- * 업데이트 내용 : signUp, read, deleteUser 메소드 업데이트
- * */
 
 package com.project.irunyou.data.service;
 

@@ -31,14 +31,5 @@ public class GetUserRunScheduleDto {
 	private LocalDateTime runScheduleDatetime;
 	private String runScheduleContent;
 	
-//	// 일정 조회 서비스용 생성자
-//	public GetUserRunScheduleDto(RunScheduleEntity runSchedule) {
-//		this.runScheduleIndex = runSchedule.getRunScheduleIndex();
-//		this.runSchedulePark = runSchedule.getParkName();
-//		this.runScheduleWriter = runSchedule.getUserNickname();
-//		this.runScheduleTitle = runSchedule.getRunScheduleTitle();
-//		this.runScheduleDatetime = runSchedule.getRunScheduleDateTime();
-//	}
-
 	
 }
